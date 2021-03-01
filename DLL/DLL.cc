@@ -7,7 +7,7 @@ private:
 	Node* prev;
 	Node* next;
 public:
-	Node(int new_data = 0, Node* new_prev = nullptr, Node* new_next = nullptr) {
+	Node(int new_data = 0, Node* new_prev = nullptr, Node* new_next = nullptr) { //A construtor that has 1, 2, or 3 parameters
 		data = new_data;
 		prev = new_prev;
 		next = new_next;
@@ -54,15 +54,15 @@ void LL::append(int x) {
 	size++;
 }
 
-void LL::prepend(int x) {
-	Node* temp = new Node(x);
-	if (head == nullptr) {
+void LL::prepend(int x) {		//Adds node to the beginning of the list
+	Node* temp = new Node(x);	//Temporary node containing the new user-inputted data
+	if (head == nullptr) {		//If the list is empty, create a new node that is head and tail
 		head = tail = temp;
 	}
 	else {
-		head->set_prev(temp);
-		temp->set_next(head);
-		head = temp;
+		head->set_prev(temp); //If list is not empty, set the head's previous to temp 
+		temp->set_next(head); //Set temp's next to the old head
+		head = temp;		  //Set the head to temp, as it now the new head
 		/*
 		temp->set_prev(nullptr);
 		temp->set_next(head);
